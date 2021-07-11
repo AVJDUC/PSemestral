@@ -25,6 +25,7 @@ class Usuario(models.Model):
 class Producto(models.Model):
     idProducto = models.IntegerField(primary_key=True, verbose_name="Id Usuario")
     nProducto = models.CharField(max_length=30, null=True, blank=True, verbose_name="nombre producto")
+    precio = models.IntegerField(max_length=20, null=True, blank=True, verbose_name="precio producto")
     cantidad = models.IntegerField(max_length=10, null=True, blank=True, verbose_name="cantidad producto")
     descripcion = models.CharField(max_length=20, null=True, blank=True, verbose_name="descripcion producto")
     idVenta= models.ForeignKey(Venta, on_delete=models.CASCADE)
@@ -34,6 +35,7 @@ class Producto(models.Model):
 
 class Venta(models.Model):
     idVenta = models.IntegerField(primary_key=True, verbose_name="Id Usuario")
+    tVenta = models.IntegerField(max_length=10, null=True, blank=True, verbose_name="total venta")
     idCliente= models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def _str_(self):
